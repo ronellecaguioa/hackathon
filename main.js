@@ -7,6 +7,7 @@ let randomWidth = Math.random() * w;
 
 // set background to waldo background
 const backgrounds = ["https://wallpaperplay.com/walls/full/9/5/4/92517.jpg", "https://cdn.hipwallpaper.com/i/76/50/iN5lzF.jpg", "https://i.pinimg.com/originals/9a/07/6c/9a076cf1c5447d3b55e30d928e5db5b7.jpg"];
+// need to set to random image in backgrounds array
 document.body.style.background = "url('https://i.pinimg.com/originals/42/34/ea/4234eadcbb998a3185441172e88a1c34.jpg')"
 document.body.style.backgroundPosition = "center"
 document.body.style.backgroundSize = "cover"
