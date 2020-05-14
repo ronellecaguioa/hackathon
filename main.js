@@ -35,6 +35,44 @@ setTimeout(() => {
 	console.log('check')
 }, Math.random() * 5000);
 
+
+/**
+ * x y 
+ * 0 1 up
+ * 0-1 down
+ *-1 0 left
+ * 1 0 right
+ * -1 1
+ * 1 -1
+ * -1 -1
+ * 1 1
+ * random i from 0 to 3 => pair for direction
+ */
+let randX = [0, 0, -1, 1, -1, 1, -1, 1 ]
+let randY = [1, -1, 0, 0, 1, -1, -1, 1 ]
+
+ // Grab all tags
+ let tags = document.getElementsByTagName('*');
+
+ // Iterate through tags
+ for (let tag of tags) {
+	let currTop = tag.offsetTop
+	let currLeft = tag.offsetLeft
+	let i = Math.floor(Math.random() * randX.length);
+	setInterval(() => {
+		tag.style.position = "absolute"
+		
+		tag.style.top = `${currTop + randY[i]}px`
+		tag.style.left = `${currLeft + randX[i]}px`
+	},1)
+}
+
+ // store the current offset left and offset top
+
+ // style the top with new direction
+ // style the left with new direction
+ 
+
 /*
 // timer or onclick or keypress
 // popup html description of extension
