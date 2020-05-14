@@ -8,7 +8,7 @@ let randomWidth = Math.random() * w;
 // Audio test
 let audio = document.createElement('audio');
 audio.id = "ourAudio"
-audio.src = 'http://www.soundjay.com/button/beep-07.wav';
+audio.src = 'https://www.mariomayhem.com/downloads/sounds/mario_64_sound_effects/mario-woohoo.WAV';
 audio.autoplay = 'false';
 document.body.append(audio);
 
@@ -43,7 +43,8 @@ setTimeout(() => {
 // make Waldo appear anywhere in body, rather than in viewable window
 // => create timer/tick function to make him appear randomly
 // => make background waldo background
-// add icon to extensiom 
+// add icon to extensio (waldo hat)
+// reset and hide after clicking
 
 
 // presentation: explain idea, demo, tech challenges, stretch features
