@@ -5,26 +5,33 @@ let w = window.innerWidth;
 let randomHeight = Math.random() * h;
 let randomWidth = Math.random() * w;
 
-// Audio test
-let audio = document.createElement('audio');
-audio.id = "ourAudio"
-audio.src = 'https://www.mariomayhem.com/downloads/sounds/mario_64_sound_effects/mario-woohoo.WAV';
-audio.autoplay = 'false';
-document.body.append(audio);
+// set background to waldo background
+const backgrounds = ["https://wallpaperplay.com/walls/full/9/5/4/92517.jpg", "https://cdn.hipwallpaper.com/i/76/50/iN5lzF.jpg", "https://i.pinimg.com/originals/9a/07/6c/9a076cf1c5447d3b55e30d928e5db5b7.jpg"];
+document.body.style.background = "url('https://i.pinimg.com/originals/42/34/ea/4234eadcbb998a3185441172e88a1c34.jpg')"
+document.body.style.backgroundPosition = "center"
+document.body.style.backgroundSize = "cover"
 
 // create image tag with src attr to (random?) waldo image
 let waldoImg = document.createElement('img');
-waldoImg.src =
-	'https://w0.pngwave.com/png/941/403/where-s-wally-the-fantastic-journey-walker-books-children-s-literature-book-png-clip-art-thumbnail.png';
+// waldoImg.src =
+// 	'https://w0.pngwave.com/png/941/403/where-s-wally-the-fantastic-journey-walker-books-children-s-literature-book-png-clip-art-thumbnail.png';
 
-// waldoImg.width = "15px";
-// waldoImg.height = "auto";
+waldoImg.src = 'https://codesmith.io/876620a5b0028d26162b6e7c142be182.jpg'
+waldoImg.style.opacity = 0.75
+waldoImg.style.borderRadius = '50%'
+
+	
 waldoImg.classList.add('waldo');
 waldoImg.style.top = `${randomHeight}px`;
 waldoImg.style.left = `${randomWidth}px`;
 waldoImg.addEventListener('click', playSound);
 
 function playSound() {
+	let audio = document.createElement('audio');
+	audio.id = "ourAudio"
+	audio.src = 'https://www.mariomayhem.com/downloads/sounds/mario_64_sound_effects/mario-woohoo.WAV';
+	audio.autoplay = 'false';
+	document.body.append(audio);
 	let sound = document.getElementById('ourAudio');
 	sound.play()
 }
@@ -32,7 +39,6 @@ function playSound() {
 // append to <body> tag
 setTimeout(() => {
 	document.body.append(waldoImg);
-	console.log('check')
 }, Math.random() * 5000);
 
 
@@ -48,24 +54,24 @@ setTimeout(() => {
  * 1 1
  * random i from 0 to 3 => pair for direction
  */
-let randX = [0, 0, -1, 1, -1, 1, -1, 1 ]
-let randY = [1, -1, 0, 0, 1, -1, -1, 1 ]
+// let randX = [0, 0, -1, 1, -1, 1, -1, 1 ]
+// let randY = [1, -1, 0, 0, 1, -1, -1, 1 ]
 
- // Grab all tags
- let tags = document.getElementsByTagName('*');
+//  // Grab all tags
+//  let tags = document.getElementsByTagName('*');
 
- // Iterate through tags
- for (let tag of tags) {
-	let currTop = tag.offsetTop
-	let currLeft = tag.offsetLeft
-	let i = Math.floor(Math.random() * randX.length);
-	setInterval(() => {
-		tag.style.position = "absolute"
+//  // Iterate through tags
+//  for (let tag of tags) {
+// 	let i = Math.floor(Math.random() * randX.length);
+// 	setInterval(() => {
+// 		let currTop = tag.offsetTop;
+// 		let currLeft = tag.offsetLeft;		
+// 		tag.style.position = "fixed"
 		
-		tag.style.top = `${currTop + randY[i]}px`
-		tag.style.left = `${currLeft + randX[i]}px`
-	},1)
-}
+// 		tag.style.top = `${currTop + randY[i]}px`
+// 		tag.style.left = `${currLeft + randX[i]}px`
+// 	},1)
+// }
 
  // store the current offset left and offset top
 
@@ -92,4 +98,19 @@ https://p7.hiclipart.com/preview/356/362/533/where-s-wally-desktop-wallpaper-sho
 https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_740,w_1100/v1555285691/shape/mentalfloss/waldomain.png?itok=SpMGe5nM
 
 https://img.pngio.com/finger-graphics-illustration-transparent-png-image-clipart-wheres-waldo-png-900_900.png
+
+
+
+https://i0.wp.com/www.thelocalvoice.net/oxford/wp-content/uploads/2012/06/fuknwaldos.gif
+
+
+dave
+https://codesmith.io/876620a5b0028d26162b6e7c142be182.jpg
+
+backgrounds
+=> https://cdn.hipwallpaper.com/i/76/50/iN5lzF.jpg
+
+=> https://wallpaperplay.com/walls/full/9/5/4/92517.jpg
+
+=> https://i.pinimg.com/originals/9a/07/6c/9a076cf1c5447d3b55e30d928e5db5b7.jpg
 */
