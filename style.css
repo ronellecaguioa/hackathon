@@ -3,6 +3,17 @@
 	height: auto;
 	position: fixed;
 	z-index: 999;
+	opacity: 0.75;
+	border-radius: 50%;
+	transition: opacity 0.2s;
+}
+
+.waldo:hover {
+	opacity: 1;
+}
+
+h3 {
+	margin: 0;
 }
 
 #foodImg {
