@@ -1,0 +1,6 @@
+.waldo {
+	width: 100px;
+	height: auto;
+	position: fixed;
+	z-index: 999;
+}
