@@ -1,6 +1,12 @@
 .waldo {
-	width: 50px;
+	width: 35px;
 	height: auto;
 	position: fixed;
 	z-index: 999;
+}
+
+#foodImg {
+	padding: 5px 5px 10px 5px;
+	border: medium solid white;
+	border-radius: 5px;
 }

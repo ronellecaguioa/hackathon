@@ -6,45 +6,71 @@ let randomHeight = Math.random() * h;
 let randomWidth = Math.random() * w;
 
 // set background to waldo background
-const backgrounds = ["https://wallpaperplay.com/walls/full/9/5/4/92517.jpg", "https://cdn.hipwallpaper.com/i/76/50/iN5lzF.jpg", "https://i.pinimg.com/originals/9a/07/6c/9a076cf1c5447d3b55e30d928e5db5b7.jpg"];
-// need to set to random image in backgrounds array
-document.body.style.background = "url('https://i.pinimg.com/originals/42/34/ea/4234eadcbb998a3185441172e88a1c34.jpg')"
-document.body.style.backgroundPosition = "center"
-document.body.style.backgroundSize = "cover"
+const backgrounds = [
+	'https://wallpaperplay.com/walls/full/9/5/4/92517.jpg',
+	'https://cdn.hipwallpaper.com/i/76/50/iN5lzF.jpg',
+	'https://i.pinimg.com/originals/9a/07/6c/9a076cf1c5447d3b55e30d928e5db5b7.jpg',
+];
+let i = Math.floor(Math.random() * 3);
+document.body.style.background = `url(${backgrounds[i]})`;
+document.body.style.backgroundPosition = 'center';
+document.body.style.backgroundSize = 'cover';
 
 // create image tag with src attr to (random?) waldo image
 let waldoImg = document.createElement('img');
-// waldoImg.src =
-// 	'https://w0.pngwave.com/png/941/403/where-s-wally-the-fantastic-journey-walker-books-children-s-literature-book-png-clip-art-thumbnail.png';
+waldoImg.src = 'https://codesmith.io/876620a5b0028d26162b6e7c142be182.jpg';
+waldoImg.style.opacity = 0.75;
+waldoImg.style.borderRadius = '50%';
 
-waldoImg.src = 'https://codesmith.io/876620a5b0028d26162b6e7c142be182.jpg'
-waldoImg.style.opacity = 0.75
-waldoImg.style.borderRadius = '50%'
-
-	
 waldoImg.classList.add('waldo');
 waldoImg.style.top = `${randomHeight}px`;
 waldoImg.style.left = `${randomWidth}px`;
-waldoImg.addEventListener('click', playSound);
+waldoImg.addEventListener('mouseover', playSound);
+let divTag = document.createElement('div');
+divTag.id = 'foodImg';
+divTag.style.backgroundColor = 'white';
+divTag.style.position = 'fixed';
+divTag.style.top = `${randomHeight + 50}px`;
+divTag.style.left = `${randomWidth}px`;
+divTag.style.textAlign = 'center';
+divTag.style.zIndex = "999"
+waldoImg.onclick = function () {
+	fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+		.then((res) => res.json())
+		.then((data) => {
+			// let food = document.createElement('img');
+			// food.src = "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg";
+			// food.width = "100"
+			// food.height = "auto";
+			// food.style.border = "thin solid black"
+			// divTag.appendChild(food)
+			console.log(data.meals[0])
+			divTag.innerHTML = `<h3><a href=${data.meals[0].strYoutube}>${data.meals[0].strMeal}</a></h3><br><img width="125" height="auto" src=${data.meals[0].strMealThumb}>`;
+			document.body.append(divTag);
+		});
+};
+waldoImg.onmouseout = function() {
+
+}
 
 function playSound() {
 	let audio = document.createElement('audio');
-	audio.id = "ourAudio"
-	audio.src = 'https://www.mariomayhem.com/downloads/sounds/mario_64_sound_effects/mario-woohoo.WAV';
+	audio.id = 'ourAudio';
+	audio.src =
+		'https://www.mariomayhem.com/downloads/sounds/mario_64_sound_effects/mario-woohoo.WAV';
 	audio.autoplay = 'false';
 	document.body.append(audio);
 	let sound = document.getElementById('ourAudio');
-	sound.play()
+	sound.play();
 }
 
 // append to <body> tag
 setTimeout(() => {
 	document.body.append(waldoImg);
-}, Math.random() * 5000);
-
+}, 1000);
 
 /**
- * x y 
+ * x y
  * 0 1 up
  * 0-1 down
  *-1 0 left
@@ -66,19 +92,18 @@ setTimeout(() => {
 // 	let i = Math.floor(Math.random() * randX.length);
 // 	setInterval(() => {
 // 		let currTop = tag.offsetTop;
-// 		let currLeft = tag.offsetLeft;		
+// 		let currLeft = tag.offsetLeft;
 // 		tag.style.position = "fixed"
-		
+
 // 		tag.style.top = `${currTop + randY[i]}px`
 // 		tag.style.left = `${currLeft + randX[i]}px`
 // 	},1)
 // }
 
- // store the current offset left and offset top
+// store the current offset left and offset top
 
- // style the top with new direction
- // style the left with new direction
- 
+// style the top with new direction
+// style the left with new direction
 
 /*
 // timer or onclick or keypress
